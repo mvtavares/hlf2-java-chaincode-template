@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+  servlet:
+    context-path: /
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /
+
+spring:
+  application:
+    name: Broker API
+  main:
+    banner-mode: off
+  jackson:
+    date-format: YYYY-MM-dd'T'HH:mm:ss
+    time-zone: GMT-3
+    serialization:
+      fail-on-empty-beans: false
+
+hyperledger-fabric.gateway:
+  enabled: true
+  user-msp-path: /etc/hyperledger/fabric/msp/
+  network-config: /etc/connection.yaml

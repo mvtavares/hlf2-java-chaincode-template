@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+  servlet:
+    context-path: /api/v1
+  error:
+    include-message: always
+    
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /
+
+spring:
+  application:
+    name: TDC Blockchain API
+  main:
+    banner-mode: off
+  jackson:
+    date-format: YYYY-MM-dd'T'HH:mm:ss
+    time-zone: GMT-3
+    serialization:
+      fail-on-empty-beans: false
+
+hyperledger-fabric.gateway:
+  enabled: true
+  discovery: true
+  wallet-path: wallet
+  msp-id: TDC
+  userId: User1
+  user-msp-path: /Users/marvin/dev/projects/chaincode/hlf2-java-chaincode-template/fabric/organizations/peerOrganizations/tdc.teste.com.br/users/User1@tdc.teste.com.br/msp/
+  network-config: etc/connection.yaml
+  channel-name: main
+  contract-name: main_cc
+  

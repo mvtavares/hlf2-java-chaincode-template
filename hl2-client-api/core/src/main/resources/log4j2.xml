@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- INCLUDE -DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector in JVM options-->
+<Configuration status="WARN" monitorInterval="30" shutdownHook="disable">
+    <Properties>
+        <Property name="MICRO_SERVICE_HOME">.</Property>
+        <Property name="DEFAULT_PATTERN">%highlight{[%-5level]} %style{[%date{ISO8601}] [%t] [%c{1}]}{Magenta} %msg %mdc%n
+        </Property>
+        <!-- DEFAULT SENTRY DSN: no operation -->
+        <Property name="LOG_PATH">${sys:MICRO_SERVICE_HOME}/logs</Property>
+        <Property name="LOG_JSON">${sys:LOG_PATH}/stdout.json</Property>
+        <Property name="LOG_JSON_GZIP">${sys:LOG_PATH}/stdout-%d{yyyy-MM-dd}-%i.json.gz</Property>
+        <!-- to be indexed -->
+        <Property name="LOG_FILE">${sys:LOG_PATH}/application.log</Property>
+        <Property name="LOG_FILE_GZIP">${sys:LOG_PATH}/application-%d{yyyy-MM-dd}-%i.log.gz</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${DEFAULT_PATTERN}"/>
+        </Console>
+
+        <RollingRandomAccessFile name="FILE" fileName="${sys:LOG_FILE}" filePattern="${sys:LOG_FILE_GZIP}">
+            <PatternLayout pattern="${DEFAULT_PATTERN}"/>
+            <DefaultRolloverStrategy max="7"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="300 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="JSON" fileName="${sys:LOG_JSON}" filePattern="${sys:LOG_JSON_GZIP}">
+            <JSONLayout compact="true" eventEol="true"/>
+            <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            <DefaultRolloverStrategy max="7"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="300 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <Async name="ASYNC" includeLocation="true">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="JSON"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="com.github.crunch013" level="INFO"/>
+        <Root level="INFO">
+            <AppenderRef ref="ASYNC"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

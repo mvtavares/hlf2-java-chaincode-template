@@ -1,0 +1,16 @@
+.project
+**/.settings/
+.factorypath
+.classpath
+.env
+**/system-genesis-block/*
+**/organizations/*
+**/channel-artifacts/*
+**/wallet/*
+**/target/*
+*.tar.gz
+**/logs/*
+.DS_Store
+**.class
+**/build/
+**/.gradle/
