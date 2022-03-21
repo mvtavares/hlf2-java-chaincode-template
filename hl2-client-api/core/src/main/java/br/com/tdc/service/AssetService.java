@@ -32,13 +32,13 @@ public class AssetService {
 
 	
 	public Asset findByCodigo(final Serializable id) throws Exception {
-		byte[] asset = getContract().evaluateTransaction("GetAllAssets", id.toString());
+		byte[] asset = getContract().evaluateTransaction("ReadAsset", id.toString());
 		return objectMapper.readValue(new String(asset, StandardCharsets.UTF_8), Asset.class);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Asset> findAll() throws Exception {
-		byte[] queryAll = getContract().evaluateTransaction("GetAll");
+		byte[] queryAll = getContract().evaluateTransaction("GetAllAssets");
 		if (queryAll != null) {
 			String ret = new String(queryAll, StandardCharsets.UTF_8);
 			if  (ret != null && !ret.isEmpty()) {
@@ -49,10 +49,11 @@ public class AssetService {
 		return null;
 	}
 
-	public byte[] create(Asset obj) throws ContractException, JsonProcessingException, TimeoutException, InterruptedException {
-		String valueJson = objectMapper.writeValueAsString(obj);
+	public Asset create(Asset obj) throws ContractException, JsonProcessingException, TimeoutException, InterruptedException {
 		if (hyperledgerFabricGatewayBuilderProperties.isEnabled()) {
-			return getContract().createTransaction("CreateAsset").submit(valueJson);
+			byte[] assetS = getContract().createTransaction("CreateAsset").submit(
+					obj.getAssetID(), obj.getColor().toString(), obj.getSize().toString(), obj.getOwner(), obj.getAppraisedValue().toString());
+			return objectMapper.readValue(new String(assetS, StandardCharsets.UTF_8), Asset.class);
 		}
 		return null;
 	}
@@ -60,7 +61,8 @@ public class AssetService {
 	public byte[] update(Asset obj) throws ContractException, JsonProcessingException, TimeoutException, InterruptedException {
 		String valueJson = objectMapper.writeValueAsString(obj);
 		if (hyperledgerFabricGatewayBuilderProperties.isEnabled()) {
-			return getContract().createTransaction("UpdateAsset").submit(valueJson);
+			return getContract().createTransaction("UpdateAsset").submit(obj.getAssetID(), obj.getColor().toString(), obj.getSize().toString(), 
+					obj.getOwner(), obj.getAppraisedValue().toString());
 		}
 		return null;
 	}

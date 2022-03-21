@@ -31,8 +31,8 @@ hyperledger-fabric.gateway:
   wallet-path: wallet
   msp-id: TDC
   userId: User1
-  user-msp-path: /Users/marvin/dev/projects/chaincode/hlf2-java-chaincode-template/fabric/organizations/peerOrganizations/tdc.teste.com.br/users/User1@tdc.teste.com.br/msp/
+  user-msp-path: /home/marvin/dev/projetos/pessoal/hlf2-java-chaincode-template/fabric/organizations/peerOrganizations/tdc.teste.com.br/users/User1@tdc.teste.com.br/msp/
   network-config: etc/connection.yaml
   channel-name: main
-  contract-name: main_cc
+  contract-name: basic
   

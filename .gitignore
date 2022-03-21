@@ -4,7 +4,8 @@
 .classpath
 .env
 **/system-genesis-block/*
-**/organizations/*
+**/organizations/ordererOrganizations/**
+**/organizations/peerOrganizations/**
 **/channel-artifacts/*
 **/wallet/*
 **/target/*

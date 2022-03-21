@@ -13,7 +13,7 @@
 # prepending $PWD/../bin to PATH to ensure we are picking up the correct binaries
 # this may be commented out to resolve installed version of tools if desired
 #export PATH=${PWD}/fabric/bin:$PATH
-export PATH=/Users/marvin/dev/projects/chaincode/fabric-samples/bin:$PATH
+export PATH=${PWD}/fabric/bin:${PATH}
 export FABRIC_CFG_PATH=${PWD}/configtx
 export VERBOSE=false
 
@@ -148,7 +148,7 @@ function createOrgs() {
     infoln "Create Org1 Identities"
 
     set -x
-    cryptogen generate --config=./organizations/cryptogen/crypto-config-org-df.yaml --output="organizations"
+    cryptogen generate --config=./organizations/cryptogen/crypto-config-org-tdc.yaml --output="organizations"
     res=$?
     { set +x; } 2>/dev/null
     if [ $res -ne 0 ]; then

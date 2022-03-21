@@ -19,21 +19,21 @@ peers:
     url: grpcs://peer0.tdc.teste.com.br:7051
     tlsCACerts:
       pem: |
-          -----BEGIN CERTIFICATE-----
-          MIICVjCCAf2gAwIBAgIQMMy0B3qc2QwqlWyxshtQCzAKBggqhkjOPQQDAjB2MQsw
-          CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
-          YW5jaXNjbzEZMBcGA1UEChMQdGRjLnRlc3RlLmNvbS5icjEfMB0GA1UEAxMWdGxz
-          Y2EudGRjLnRlc3RlLmNvbS5icjAeFw0yMjAzMjExNzM4MDBaFw0zMjAzMTgxNzM4
-          MDBaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
-          Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExB0ZGMudGVzdGUuY29tLmJyMR8wHQYD
-          VQQDExZ0bHNjYS50ZGMudGVzdGUuY29tLmJyMFkwEwYHKoZIzj0CAQYIKoZIzj0D
-          AQcDQgAEaJDpoeV0ggQ76dAJ4CKlf2H3gZXaXLxbBPkwHnzBgY6DdCcsGbAR8CLc
-          52/ZFlCh4NJiUPE4Du7F2uSXkZ3QVqNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1Ud
-          JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1Ud
-          DgQiBCDj1gg6yqjo8qafEUPtQfbrr/5rUaWqt917uwZkvnwABzAKBggqhkjOPQQD
-          AgNHADBEAiAma4HRYLyjDcKKGxk0sNfk+zV9et5RQd4s2boTLHRHRwIgBkle4h6G
-          J1ZzTz6EnvTmOwwpcFzvkZB94621dbGNrB0=
-          -----END CERTIFICATE-----
+           -----BEGIN CERTIFICATE-----
+           MIICVjCCAf2gAwIBAgIQCE3vBN643PjH6c6x4O8exjAKBggqhkjOPQQDAjB2MQsw
+           CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+           YW5jaXNjbzEZMBcGA1UEChMQdGRjLnRlc3RlLmNvbS5icjEfMB0GA1UEAxMWdGxz
+           Y2EudGRjLnRlc3RlLmNvbS5icjAeFw0yMjAzMjEyMjM3MDBaFw0zMjAzMTgyMjM3
+           MDBaMHYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
+           Ew1TYW4gRnJhbmNpc2NvMRkwFwYDVQQKExB0ZGMudGVzdGUuY29tLmJyMR8wHQYD
+           VQQDExZ0bHNjYS50ZGMudGVzdGUuY29tLmJyMFkwEwYHKoZIzj0CAQYIKoZIzj0D
+           AQcDQgAE4yLkLxuSayQDTDqgGsOthDHsBg6Re4HrDccBf3/QoLVm1F6cgijFRs1N
+           Au3W2+cbFNSS3kCEJJwStXUb2uaDfKNtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1Ud
+           JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1Ud
+           DgQiBCBkVNpgiiCJIXgJuQ9ungXWyGxYsPBhJxYK8RBaLpedYjAKBggqhkjOPQQD
+           AgNHADBEAiAiX7+LchUIZrgDE1vKNLueR1dmFBPN/sp6rAEeAkmaagIgAx7EDU5n
+           Zrm1TSlmVm0fBT4PwJRrGbd+bTWJNsWWjmg=
+           -----END CERTIFICATE-----
     grpcOptions:
       ssl-target-name-override: peer0.tdc.teste.com.br
       hostnameOverride: peer0.tdc.teste.com.br
@@ -44,20 +44,20 @@ certificateAuthorities:
     tlsCACerts:
       pem: 
         - |
-            -----BEGIN CERTIFICATE-----
-            MIICUjCCAfigAwIBAgIRAPi9m6iojirWzt4Prxw9hP8wCgYIKoZIzj0EAwIwczEL
-            MAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG
-            cmFuY2lzY28xGTAXBgNVBAoTEHRkYy50ZXN0ZS5jb20uYnIxHDAaBgNVBAMTE2Nh
-            LnRkYy50ZXN0ZS5jb20uYnIwHhcNMjIwMzIxMjEwMjAwWhcNMzIwMzE4MjEwMjAw
-            WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMN
-            U2FuIEZyYW5jaXNjbzEZMBcGA1UEChMQdGRjLnRlc3RlLmNvbS5icjEcMBoGA1UE
-            AxMTY2EudGRjLnRlc3RlLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA
-            BMmpmZJ3L7azkKLjfWa/rBd5x5HDim/tN4j+WMi5INfhIgp01Dp9wBdPC31g/wGM
-            CFgQUENC7CMBN64n2tXR9GujbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAU
-            BggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQg
-            ReB9slHS14fXmAHATdfr8OoorQcyDhQz24l0jfkJ/30wCgYIKoZIzj0EAwIDSAAw
-            RQIhAOKBmArrZgZQl7iRXihWp1VviM6nC8avEMq7co/lI8FpAiAIEWsDyGnX/6jI
-            T+GSwSdbJFWL3N49WrFDpvOhsqpg9Q==
-            -----END CERTIFICATE-----
+           -----BEGIN CERTIFICATE-----
+           MIICUTCCAfegAwIBAgIQblxOminajVdCiwznTAvywTAKBggqhkjOPQQDAjBzMQsw
+           CQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy
+           YW5jaXNjbzEZMBcGA1UEChMQdGRjLnRlc3RlLmNvbS5icjEcMBoGA1UEAxMTY2Eu
+           dGRjLnRlc3RlLmNvbS5icjAeFw0yMjAzMjEyMjM3MDBaFw0zMjAzMTgyMjM3MDBa
+           MHMxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+           YW4gRnJhbmNpc2NvMRkwFwYDVQQKExB0ZGMudGVzdGUuY29tLmJyMRwwGgYDVQQD
+           ExNjYS50ZGMudGVzdGUuY29tLmJyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+           JkVc4p/arTHBb9OcGf5lMEXWAApQxh7+Z2PbdJLm6OdHNraeywd00kVXsYHLBzhI
+           dt64S0HJQMDBZf8/EN5Wq6NtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQG
+           CCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCAR
+           2P/5Bp9fIOSQuxswRKTtVXpXVKOJFjC/A6ryp/uOojAKBggqhkjOPQQDAgNIADBF
+           AiEAk9Y0O+7b4n0RpH2Y2qrslmT1rk3qgmP6VkTpI9fssBwCIAMk4+C+ty0eBG7/
+           TOPv/zO9wGfRjei5I8etrNTL9fTa
+           -----END CERTIFICATE-----
     httpOptions:
       verify: false

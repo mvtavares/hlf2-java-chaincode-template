@@ -52,11 +52,11 @@ TDC
 
 
 ## Testando
-docker exec -it cli bash
+docker exec -it cli-teste bash
 
 - peer lifecycle chaincode queryinstalled
 - peer chaincode invoke -o orderer.teste.com.br:7050 --tls --cafile ${PWD}/organizations/ordererOrganizations/teste.com.br/orderers/orderer.teste.com.br/msp/tlscacerts/tlsca.teste.com.br-cert.pem -C main -n basic -c '{"function":"InitLedger","Args":[]}'
-- peer chaincode query -C main -n basic -c '{"Args":["GetAll"]}'
+- peer chaincode query -C main -n basic -c '{"Args":["GetAllAssets"]}'
 
 # Diretórios importantes do sistema
 

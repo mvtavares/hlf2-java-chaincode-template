@@ -1,7 +1,6 @@
 package br.com.tdc.controller;
 
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.hyperledger.fabric.gateway.ContractException;
@@ -24,7 +23,6 @@ import br.com.tdc.exception.FabricHttpServiceException;
 import br.com.tdc.model.Asset;
 import br.com.tdc.model.UpdateAsset;
 import br.com.tdc.service.AssetService;
-import br.com.tdc.utils.FabricUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -80,16 +78,15 @@ public class AssetController {
 			@ApiResponse(responseCode = "400", description = "Dados inválidos", content = @Content) })
 	@RequestMapping(value = { "/" }, method = { RequestMethod.POST }, produces="application/json")
 	public ResponseEntity<Object> create(@RequestBody Asset asset) {
-		String id = null;
+		Asset newAsset = null;
 		try {
-			byte[] idB = assetService.create(asset);
-			id = new String(idB, StandardCharsets.UTF_8);
+			newAsset = assetService.create(asset);
 		} catch (ContractException e) {
-			return ResponseEntity.badRequest().body(new ApiError(HttpStatus.BAD_REQUEST, FabricUtils.getDisplayMessage(e.getMessage()), e));
+			return ResponseEntity.badRequest().body(new ApiError(HttpStatus.BAD_REQUEST, e.getMessage(), e));
 		} catch (Exception e) {
 			throw new FabricHttpServiceException(e);
 		}
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id)
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newAsset.getAssetID())
 				.toUri();
 		return ResponseEntity.created(location).build();
 	}

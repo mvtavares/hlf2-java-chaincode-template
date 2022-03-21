@@ -10,13 +10,13 @@ public class Asset {
 	
     private String assetID;
 
-    private final String color;
+    private String color;
 
-    private final int size;
+    private Integer size;
 
-    private final String owner;
+    private String owner;
 
-    private final int appraisedValue;
+    private Integer appraisedValue;
 	
 }
 
