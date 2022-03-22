@@ -11,9 +11,9 @@ Instalar:
 
 - Entrar na pasta /var/hyperledger/stack/fabric/ e executar os procedimentos 1, 2 e 3 do README.
 
-- Copiar os certificados TLS do peer e da CA no arquivo: /var/hyperledger/stack/broker-api/core/etc/connection.yaml
+- Copiar os certificados TLS do peer e da CA no arquivo: /var/hyperledger/stack/hl2-client-api/core/etc/connection.yaml
 
-- Executar em /var/hyperledger/stack/broker-api/
+- Executar em /var/hyperledger/stack/hl2-client-api/
     1. mvn package
     2. docker-compose -f ./docker/docker-compose.yml up -d
 
