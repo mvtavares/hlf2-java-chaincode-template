@@ -44,12 +44,9 @@ rm -Rf /var/hyperledger/couchdbteste0/
 
 ## Acessar diretamente o CouchDB
 
-TDC
-
 - URL: http://localhost:5984/_utils/
 - User: admin
 - Pass: adminpw
-
 
 ## Testando
 docker exec -it cli-teste bash
