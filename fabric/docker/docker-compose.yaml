@@ -14,7 +14,7 @@ volumes:
 
 services:
   
-  orderer.teste.df.gov.br:
+  orderer.teste.gov.br:
     container_name: orderer.teste.com.br
     image: hyperledger/fabric-orderer:$IMAGE_TAG
     labels:
